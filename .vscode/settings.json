@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "dmf_node.h": "c",
+        "winsock2.h": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "dmf_node_map.h": "c"
+    }
+}
