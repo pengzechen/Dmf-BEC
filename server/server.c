@@ -3,7 +3,6 @@
 #include <stdlib.h>
 
 #include "dmf_node.h"
-#include <windows.h>
 #include "dmf_node_map.h"
 
 int main() {

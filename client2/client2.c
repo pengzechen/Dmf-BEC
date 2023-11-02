@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "dmf_node.h"
-#include <windows.h>
+
 
 int main() {
 
@@ -25,7 +25,7 @@ int main() {
 
     for(;;) {
         // printf("Main thread\n");
-        Sleep(3000);
+        sleep(3);
     }
     return 0;
 }

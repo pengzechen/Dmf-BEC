@@ -1,5 +1,4 @@
 #include "dmf_node.h"
-#include <WinSock2.h>
 #include "dmf_socket.h"
 #include "dmf_node_map.h"
 
@@ -70,7 +69,6 @@ void *node_listening_process(void* arg) {
 		req_res_handler( sAccept );
 	}
 
-    WSACleanup();
 }
 
 void *node_connection_process(void* arg) {
@@ -81,10 +79,10 @@ void *node_connection_process(void* arg) {
 	int recv_len;
 	int send_len;
         send_len = send(fd, (char*)g_node, sizeof(node_t), 0);
-        printf("node size: %d, send legth: %d\n", sizeof(node_t), send_len);
+        printf("node size: %ld, send legth: %d\n", sizeof(node_t), send_len);
         recv_len = recv(fd, message, sizeof(message) - 1, 0);
         printf("Receive message length: %d\nData:\n %s\n",recv_len, message);
-    closesocket(fd);
+    close(fd);
 }
 
 void node_config_push(char* path, char* rule) {

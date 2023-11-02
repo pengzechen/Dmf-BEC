@@ -16,13 +16,9 @@ set(CMAKE_SYSTEM_VERSION 1)
 set(PROJECT_BINARY_DIR ${PROJECT_SOURCE_DIR}/build)
 
 include_directories(${PROJECT_SOURCE_DIR})
-include_directories(${PROJECT_SOURCE_DIR}/pthread)
 link_directories("${PROJECT_SOURCE_DIR}/lib")
 
-link_libraries("ws2_32")
-link_libraries("pthreadVC2")
-add_definitions("-DHAVE_STRUCT_TIMESPEC")
-
+link_libraries("pthread")
 
 
 file( GLOB main_SRC "*.h" "*.c" )

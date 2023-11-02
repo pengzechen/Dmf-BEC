@@ -4,11 +4,8 @@
 
 int sock_listening(int port){
     
-    WSADATA wsaData;
-	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)  
-        return -1;
 
-    SOCKET sListen;
+    int sListen;
     struct sockaddr_in ser;
     sListen = socket(AF_INET, SOCK_STREAM, 0);
     ser.sin_family = AF_INET; 
@@ -25,22 +22,19 @@ int sock_listening(int port){
 
 
 int sock_connection(char* ip, int port) {
-    SOCKET hSocket;
+    int hSocket;
 	struct sockaddr_in servAddr;
 
-	WSADATA wsaData;
-	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)  
-        return -1;
 
 	hSocket = socket(PF_INET, SOCK_STREAM, 0);
-	if (hSocket == INVALID_SOCKET)                  
+	if (hSocket == -1)                  
         return -1;
 
 	memset(&servAddr, 0, sizeof(servAddr));
 	servAddr.sin_family = AF_INET;
 	servAddr.sin_addr.s_addr = inet_addr(ip);
 	servAddr.sin_port = htons(port);
-	if(connect(hSocket, (SOCKADDR*) &servAddr, sizeof(servAddr)) == SOCKET_ERROR) 
+	if(connect(hSocket, (struct sockaddr*) &servAddr, sizeof(servAddr)) == -1) 
         return -1;
 
     return hSocket;

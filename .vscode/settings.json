@@ -4,6 +4,9 @@
         "winsock2.h": "c",
         "type_traits": "c",
         "utility": "c",
-        "dmf_node_map.h": "c"
+        "dmf_node_map.h": "c",
+        "unistd.h": "c",
+        "dmf_socket.h": "c",
+        "in.h": "c"
     }
 }
